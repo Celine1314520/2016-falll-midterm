@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html >
+	<head>
+		<meta charset="UTF-8">
+		<title>堂本家女孩-說明頁</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html">t'ang ben jia</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="index.html#one">Works</a></li>
+						<!-- <li><a href="info.html">說明頁</a></li>-->
+						<!-- <li><a href="#" class="button special">Sign Up</a></li>-->
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="container">
+
+					<header class="major">
+						<h2>說明頁</h2>
+						<p>關於家庭錄影帶</p>
+					</header>
+
+					<!--<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>-->
+					<p>這一次也一樣延續家庭的主題，實作html5的影片功能</p>
+					
+					<p>在影片開始撥放前，會先放一張loading動畫圖片，<br>
+					接著會自動開始撥放影片(怕使用者不知道要按撥放，就一直看圖片)</p>
+					
+					<p>原本放的家庭影片有一個小時多，<br>
+					太長了，用手機網路載入了30秒(看了3輪gif動畫)都還不能撥，<br>
+					所以趕快將另一個家庭影片轉檔成mp4傳上伺服器。</p>
+					<p>
+					截圖功能是用canvas實作。<br>
+					方便使用者快速截下影片的畫面。<br>
+					</p>				
+					<p>有些功能要在影片開始撥放後才可以使用，是小防呆機制，<br>
+					例如截圖如果還在圖片階段就按的話，就會先看到影片的開頭而非該圖片，
+					使用者會因為不一致而感到奇怪。</p>
+					
+					<p>倍速撥放的功能在部分瀏覽器也可以直接包含倒帶功能，<br>
+					因為chrome不支援，我用IE11去看，確實有倒帶功能，但是畫面頓頓的，沒有實做的很好，<br>
+					我便自己也寫了一個倒帶功能，用setInterval去實現，這樣一來在各瀏覽器上都有較佳的體驗。<br>
+					使用者只要按著倒帶鈕就就會持續倒帶，直到放開按鈕，會暫停在該畫面，等待使用者按撥放。
+					</p>
+					<p>
+					因為我個人滿不喜歡網頁有聲音的，所以先預設成靜音模式，<br>
+					使用者可以先調好要的音量再打開聲音，<br>
+					並用icon輔助使用者了解自己目前的音量模式。<br>
+					</p>
+					<p>
+					重複播放則是在影片結束的時候就會去檢查現在的設定值，<br>
+					去判斷是否要幫使用者重播，<br>
+					所以如果是在此次影片已經結束後才說要重複播放的話，<br>
+					不會馬上又開始撥放影片，需要自己按下撥放鍵，<br>
+					此按鈕只提供設定重播模式的設定。<br>
+					</p>
+					
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<!--
+					<section class="links">
+						<div class="row">
+							<section class="3u 6u(medium) 12u$(small)">
+								<h3>Lorem ipsum dolor</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Nesciunt itaque, alias possimus</a></li>
+									<li><a href="#">Optio rerum beatae autem</a></li>
+									<li><a href="#">Nostrum nemo dolorum facilis</a></li>
+									<li><a href="#">Quo fugit dolor totam</a></li>
+								</ul>
+							</section>
+							<section class="3u 6u$(medium) 12u$(small)">
+								<h3>Culpa quia, nesciunt</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Reiciendis dicta laboriosam enim</a></li>
+									<li><a href="#">Corporis, non aut rerum</a></li>
+									<li><a href="#">Laboriosam nulla voluptas, harum</a></li>
+									<li><a href="#">Facere eligendi, inventore dolor</a></li>
+								</ul>
+							</section>
+							<section class="3u 6u(medium) 12u$(small)">
+								<h3>Neque, dolore, facere</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Distinctio, inventore quidem nesciunt</a></li>
+									<li><a href="#">Explicabo inventore itaque autem</a></li>
+									<li><a href="#">Aperiam harum, sint quibusdam</a></li>
+									<li><a href="#">Labore excepturi assumenda</a></li>
+								</ul>
+							</section>
+							<section class="3u$ 6u$(medium) 12u$(small)">
+								<h3>Illum, tempori, saepe</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Recusandae, culpa necessita nam</a></li>
+									<li><a href="#">Cupiditate, debitis adipisci blandi</a></li>
+									<li><a href="#">Tempore nam, enim quia</a></li>
+									<li><a href="#">Explicabo molestiae dolor labore</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+					-->
+					<div class="row">
+						<div class="8u 12u$(medium)">
+							<ul class="copyright">
+								<li>&copy All Rights Reserved </li>
+								<li>Design: Celine</li>
+								<!--
+								<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+								<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+								-->
+							</ul>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<ul class="icons">
+								<li>
+									<a class="icon rounded fa-envelope" href="mailto:sg123411@gmail.com"><span class="label">E-mail</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-facebook" href="https://www.facebook.com/zhangjian.celine" ><span class="label">Facebook</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-google-plus" href="https://plus.google.com/u/0/+CelineZhangJian"><span class="label">Google+</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-linkedin" href="https://www.linkedin.com/in/celine-zhang-jian-05770295"><span class="label">LinkedIn</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+	</body>
+</html>

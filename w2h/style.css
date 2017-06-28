@@ -1,0 +1,25 @@
+body
+{
+    
+    background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size:cover auto;
+
+
+    font-family:Arial, "微軟正黑體", "Microsoft JhengHei","文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro","標楷體", DFKai-SB, sans-serif;
+}
+
+TABLE
+{
+   
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
+
+}
+h1
+{
+    color: black;
+}
+

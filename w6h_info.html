@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html >
+	<head>
+		<meta charset="UTF-8">
+		<title>堂本家女孩-說明頁</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html">t'ang ben jia</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="index.html#one">Works</a></li>
+						<!-- <li><a href="info.html">說明頁</a></li>-->
+						<!-- <li><a href="#" class="button special">Sign Up</a></li>-->
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="container">
+
+					<header class="major">
+						<h2>說明頁</h2>
+						<p>關於小遊戲</p>
+					</header>
+
+					<!--<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>-->
+<p>
+這次作業整合了第一次的作業的概念(猜拳)，然後將OOXX和RBG小遊戲整合再一起。<br>
+auto walk的功能為了做出延遲的效果還滿麻煩的，不像java可以讓它睡一下再起床，就用setTimeout和很多個函數去做<br>
+<br>
+整合遇到的第一個困難其實是把這個作業放在子資料夾的話，引不到主頁模板的css檔，就算用../也不行，但js就可以(嘆氣)<br>
+所以只好將這個頁面放在跟主頁同層，而這個作業的js檔則放在子資料夾內，發生了許多有趣的引不到檔案的問題，<br>
+有些引法東西要跟著html檔案走，有些則是要跟js檔放在一起，<br>
+還好有console的資訊可以看，它說它在哪裡找(找不到)檔案我就丟過去該位置XD<br>
+<br>
+第二件事情就是將原本的鍵盤事件的監聽器改用addEventListener註冊監聽，這樣才可以再換成圈圈叉叉時將監聽器取消掉。<br>
+然後在圈圈叉叉有輸贏平手時，把監聽器拿掉，等到他按下再一局再重新註冊<br>
+<br>
+程式撰寫過程也發生一些我找不到原因的事情，<br>
+我一開始將角色等級的元件id命為status，然後我在js就怎麼叫都叫不到它，後來把id改成talkbox2就可以了；<br>
+還有在OOXX魔王說話的時候，在電腦第二步之後就不會再更新那句話，<br>
+我只好在裡面再宣告一次用區域變數的方式，讓他每次都去getElement。<br>
+<br>
+原本想要寫一個無敵的ooxx，但是後來發現這樣要寫好多判斷式(總覺得有些數學關係可以把它函式化)，<br>
+而且如果使用者覺得怎麼玩都不會贏，就不好玩了，<br>
+如果有可能會贏、會輸、平手，才好玩，而且有更多變化，<br>
+我讓主角會贏錢和噴錢。<br>
+<br>
+然後有設計彩蛋，就是alert 魔王心裡苦，但魔王不說XD <br>
+<br>
+目前如果主角身上的錢在100以上的話，魔王會生氣(比較多判斷)<br>
+<br>
+其實除了目前看到的，我還有想一些延伸可以做，<br>
+像是猜拳可以把主畫面換成猜拳畫面，猜拳結束再換回來，<br>
+我程式碼其實有做一些準備了，就是RBG遊戲的東西都有存著，<br>
+可以在畫回去，因為是用map去畫出對應的東西，而且有在更新地圖(如消滅敵人)<br>
+<br>
+這樣也可以在圈圈叉叉關卡達到某個條件(如錢達到300)時，又回主畫面，<br>
+可以來個買裝備，就可以升等上山(每座山再延伸不同小遊戲)<br>
+
+寫完的感覺是：把重複的程式碼整理成函式還滿重要的，不然發現有錯的時候，每次都要改一堆地方，而且程式碼變好長，
+本來九百多行，在把模擬玩家二的指令弄成函式就變成七百多行，主要還是判斷那裏的寫法感覺還可以在改良。
+</p>
+					
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">				
+					<div class="row">
+						<div class="8u 12u$(medium)">
+							<ul class="copyright">
+								<li>&copy All Rights Reserved </li>
+								<li>Design: Celine</li>
+								<!--
+								<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+								<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+								-->
+							</ul>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<ul class="icons">
+								<li>
+									<a class="icon rounded fa-envelope" href="mailto:sg123411@gmail.com"><span class="label">E-mail</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-facebook" href="https://www.facebook.com/zhangjian.celine" ><span class="label">Facebook</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-google-plus" href="https://plus.google.com/u/0/+CelineZhangJian"><span class="label">Google+</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-linkedin" href="https://www.linkedin.com/in/celine-zhang-jian-05770295"><span class="label">LinkedIn</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+	</body>
+</html>

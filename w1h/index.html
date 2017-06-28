@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--文件儲存的編碼/html內告訴瀏覽器的編碼/資料庫的編碼-->
+    <title>今天誰要倒垃圾</title>
+
+    <script src="main.js"></script>
+    <!--src是代表source-->
+    
+    <script>
+        function check()
+        {
+            var x = document.forms["myForm"]["username"].value;
+            if (x == null || x == "")
+            {
+                alert("您還沒填名字呦");
+                document.getElementsByTagName("h1")[0].innerHTML = "你是小頑皮，你去倒垃圾~";
+            }
+            else 
+            {
+                showAnswer();
+            }
+        }
+    </script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"/>
+    <!--rel是代表relationship-->
+    <!--href是超聯結的意思吧-->
+    <!--xhtml原本是想要走向xml的嚴謹度所以有那個斜線-->
+</head>
+<body>
+
+    <form name="myForm">
+        <div class="navbar-fixed-top" style="background-color:black">
+            <p style="padding-top:5px">
+               <!-- <input type="button" class='btn btn-default' value="說明" onclick="location.href='\info.html'" />-->
+                <strong style="color:white">請輸入你的名字:</strong>
+            
+            <input type="text" name="username" id="myText"/>
+            <input type="button" class='btn btn-danger' onclick="check()" value="確定"/>
+            </p>
+        </div>
+        
+    </form>
+
+    <br>
+    <br>
+    <br>
+    <br>
+<ul>
+<!--ul是unorder list-->
+    <li>爸爸</li>
+	<li>媽媽</li>
+	<li>大哥</li>
+	<li>大嫂</li>
+	<li>二哥</li>
+	<li>姊姊</li>
+	<li>妹妹</li>
+</ul>
+    <h1>?</h1>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>喜事倒數</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="settingBlock">
+            <!--輸入文字/日期/下拉選單-->
+            <select id="selection">
+                <option default value="bg.jpg">請選主題(背景)</option>
+                <option value="wedding.jpg">婚禮</option>
+                <option value="baby.jpg">預產</option>
+            </select>
+            <input type="text" placeholder="請輸入喜事名目" size="50"  id="setTopic" value="">
+            <input type="date" id="setDate">
+            <input type="button" value="確定" id="confirmbtn" value=""><br>
+
+    </div>
+    
+    <div id="showBlock">
+        <TABLE id="ttable">
+            <tbody>
+                <tr>
+                    <td>
+                        <h1 id="showTheDay">日期</h1>
+                        <h1 id="title">Event</h1>
+                        <h1>多久?</h1>
+                        <h1 id="leftDays">時間距離</h1>
+                    </td>
+                </tr>
+            </tbody>
+        </TABLE>
+    </div>
+    
+    
+
+</body>
+</html>

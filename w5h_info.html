@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html >
+	<head>
+		<meta charset="UTF-8">
+		<title>堂本家女孩-說明頁</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html">t'ang ben jia</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="index.html#one">Works</a></li>
+						<!-- <li><a href="info.html">說明頁</a></li>-->
+						<!-- <li><a href="#" class="button special">Sign Up</a></li>-->
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="container">
+
+					<header class="major">
+						<h2>說明頁</h2>
+						<p>關於Youtube</p>
+					</header>
+
+					<!--<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>-->
+					<p>本來想要跟家庭錄影帶一樣有截圖功能，因為這個不是vedio tag 無法直接傳給canvas，<br>
+						所以就在網路上找到html2canvas，也成功地套入，再將此程式產生的canvas，<br>
+						傳給我自己畫面上的canvas，但是這樣截出來卻是灰的畫面，只好將此功能下架XD<br>
+						我在想是不是因為這個div的內容是由Youtube API產生的關係，之後再繼續試試看其他方法。
+					</p>
+					
+					<p>youtube的api都將屬性包起來了，必須要用get和set去存取，<br>
+						最不方便的一點就是他的seekto隱含了撥放，導致我在實作倒帶功能時很困擾，<br>
+						我在每一次倒退時都要呼叫一次暫停，使用者體驗也不佳。
+					</p>
+					
+					<p>這個作業我覺得截圖和倒帶的功能是我還滿意外我會做出來的哈哈<br>
+						截圖讓我發現CANVAS很靈活<br>
+						倒帶是我用setInterval做的，我想說倒帶就是一直往前調，這種要一直做的事就交給它就對了<br>
+						比較特別的是在之前的作業都不需要清掉interval，但是這個必須在使用者放開按鈕時清掉<br>
+						我才發現可以在setInterval function會有一個回傳值，是他的id，必須將此id傳給clearInterval,<br>
+						他才知道要停止的是哪一個interval，<br>
+						然後時間要設頻繁一點，使用者才會感覺到他有在動，而不是無效的按鈕，才不會在看到效果前就放開按鈕
+					</p>
+					
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">				
+					<div class="row">
+						<div class="8u 12u$(medium)">
+							<ul class="copyright">
+								<li>&copy All Rights Reserved </li>
+								<li>Design: Celine</li>
+								<!--
+								<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+								<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+								-->
+							</ul>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<ul class="icons">
+								<li>
+									<a class="icon rounded fa-envelope" href="mailto:sg123411@gmail.com"><span class="label">E-mail</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-facebook" href="https://www.facebook.com/zhangjian.celine" ><span class="label">Facebook</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-google-plus" href="https://plus.google.com/u/0/+CelineZhangJian"><span class="label">Google+</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-linkedin" href="https://www.linkedin.com/in/celine-zhang-jian-05770295"><span class="label">LinkedIn</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+	</body>
+</html>

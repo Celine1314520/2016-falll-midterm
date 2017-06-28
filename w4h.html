@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>堂本家女孩-家庭錄影帶</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+		
+		<link rel="stylesheet" href="w4h/style.css"/>
+		<script src="w4h/main.js"></script>
+		
+	</head>
+	<body style="margin:0px;padding:0px">
+    
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html">t'ang ben jia</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="index.html#one">Works</a></li>
+						<!-- <li><a href="info.html">說明頁</a></li>-->
+						<!-- <li><a href="#" class="button special">Sign Up</a></li>-->
+					</ul>
+				</nav>
+			</header>
+
+		
+		<!-- Main -->
+			<div id="all">
+				<input type="text" id="videoURL"><!--label也可以，div也可以-->	
+				<select id="fastPlay" style="visibility:hidden">
+				  	<option value="1">播放速度：1倍▼</option>
+				  	<option value="1.5">播放速度：1.5倍▼</option>
+				  	<option value="2">播放速度：2倍▼</option>
+				  	<option value="3">播放速度：3倍▼</option>
+					<option value="0.5">播放速度：0.5倍▼</option>
+					<option value="-1">倒帶(Internet Explorer 10支援)▼</option>
+				</select>
+				<video id="myVideo"
+				   src="homeV.mp4" 
+				   width="854"
+				   height="480"
+				   muted = "muted"
+					poster = "loading.gif"  
+				   >
+				   無法撥放此影片
+				</video>
+				<br>
+				<input type="button" id="playButton" value="Play!">
+				<input type="range" width="640" value="0" id="progressSlider">
+				<!--<div>-->
+					<span id="timeDisplay">00:00</span>
+				<!--</div>-->
+				<input type="button" id="rewind" value="倒帶" style="visibility:hidden">
+				<br><br>
+				<input type="button" id="take_pic" value="截圖"  style="visibility:hidden">
+				<input type="button" id="Replay" value="重複播放">
+				<input type="button"  id="fullScreenButton" value="FullScreen">
+				<input type="button"  id="volum" value="開啟聲音">
+				<i id="volumeStatus" class="fa fa-volume-off fa-2x" aria-hidden="true"></i>
+				<input type="range" id="volumeControl" min="0" max="1" width="30" height="100" step="any" value="0.5">
+				
+				
+				
+				
+			
+				<br><br>
+				<canvas id = "canvas"> </canvas> 
+				</div>
+
+
+		<!-- Footer -->
+			<footer id="footer" >
+				<div  class="container" >
+					<!--
+					<section class="links">
+						<div class="row">
+							<section class="3u 6u(medium) 12u$(small)">
+								<h3>Lorem ipsum dolor</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Nesciunt itaque, alias possimus</a></li>
+									<li><a href="#">Optio rerum beatae autem</a></li>
+									<li><a href="#">Nostrum nemo dolorum facilis</a></li>
+									<li><a href="#">Quo fugit dolor totam</a></li>
+								</ul>
+							</section>
+							<section class="3u 6u$(medium) 12u$(small)">
+								<h3>Culpa quia, nesciunt</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Reiciendis dicta laboriosam enim</a></li>
+									<li><a href="#">Corporis, non aut rerum</a></li>
+									<li><a href="#">Laboriosam nulla voluptas, harum</a></li>
+									<li><a href="#">Facere eligendi, inventore dolor</a></li>
+								</ul>
+							</section>
+							<section class="3u 6u(medium) 12u$(small)">
+								<h3>Neque, dolore, facere</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Distinctio, inventore quidem nesciunt</a></li>
+									<li><a href="#">Explicabo inventore itaque autem</a></li>
+									<li><a href="#">Aperiam harum, sint quibusdam</a></li>
+									<li><a href="#">Labore excepturi assumenda</a></li>
+								</ul>
+							</section>
+							<section class="3u$ 6u$(medium) 12u$(small)">
+								<h3>Illum, tempori, saepe</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Recusandae, culpa necessita nam</a></li>
+									<li><a href="#">Cupiditate, debitis adipisci blandi</a></li>
+									<li><a href="#">Tempore nam, enim quia</a></li>
+									<li><a href="#">Explicabo molestiae dolor labore</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+					-->
+					<div class="row">
+						<div class="8u 12u$(medium)">
+							<ul class="copyright">
+								<li>&copy All Rights Reserved </li>
+								<li>Design: Celine</li>
+								<!--
+								<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+								<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+								-->
+							</ul>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<ul class="icons">
+								<li>
+									<a class="icon rounded fa-envelope" href="mailto:sg123411@gmail.com"><span class="label">E-mail</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-facebook" href="https://www.facebook.com/zhangjian.celine" ><span class="label">Facebook</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-google-plus" href="https://plus.google.com/u/0/+CelineZhangJian"><span class="label">Google+</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-linkedin" href="https://www.linkedin.com/in/celine-zhang-jian-05770295"><span class="label">LinkedIn</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+	</body>
+</html>

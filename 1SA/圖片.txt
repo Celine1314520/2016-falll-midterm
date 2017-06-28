@@ -1,0 +1,51 @@
+blueshirt2 = http://i.imgur.com/vtGNih1.jpg
+blueshirt3 = http://i.imgur.com/XegiYEs.jpg
+redshirt1 = http://i.imgur.com/46rp7EU.jpg
+redshirt2 = http://i.imgur.com/ciTeGDJ.jpg
+whiteshirt1 = http://i.imgur.com/G0u8fmW.jpg
+whiteshirt2 = http://i.imgur.com/PH6y65N.jpg
+short1 = http://i.imgur.com/CDklao2.jpg
+short1-1 = http://i.imgur.com/hoQDTk1.jpg
+short2 = http://i.imgur.com/deWoK9K.jpg
+short2-1 = http://i.imgur.com/pq3ta3Y.jpg
+short3 = http://i.imgur.com/mejbpq6.jpg
+short3-1 = http://i.imgur.com/V68QzfD.jpg
+shoes1 = http://i.imgur.com/jO2vzPk.jpg
+shoes1-1 = http://i.imgur.com/8ByGvs3.png
+shoes2 = http://i.imgur.com/i0nGC1w.jpg
+shoes2-1 = http://i.imgur.com/PrNXi6p.png
+shoes3 = http://i.imgur.com/RpqfpqS.jpg
+shoes3-1 = http://i.imgur.com/tVWSWzR.jpg
+
+B1 = http://i.imgur.com/3HiSLQ3.jpg
+B2 = http://i.imgur.com/fH1bapC.jpg
+B3 = http://i.imgur.com/IuIyiyH.jpg
+B4 = http://i.imgur.com/VLYBLZr.jpg
+BBW = http://i.imgur.com/WVyfe6u.jpg
+BBY = http://i.imgur.com/DaG2KN2.jpg
+BWB = http://i.imgur.com/FupWi5I.jpg
+BWR = http://i.imgur.com/svNMxIW.jpg
+
+1BBW = http://i.imgur.com/9JQmqJO.jpg
+2BBW = http://i.imgur.com/zXIEoHd.jpg
+3BBW = http://i.imgur.com/vN4P4JH.jpg
+4BBW = http://i.imgur.com/YhlUzxR.jpg
+
+FB = http://i.imgur.com/ochpYT5.png
+
+400*200
+1BBW = http://i.imgur.com/x0DCClK.jpg
+2BBW = http://i.imgur.com/SmQKj2d.jpg
+3BBW = http://i.imgur.com/zevlbMU.jpg
+4BBW = http://i.imgur.com/vZyZPPu.jpg
+shirt1 = http://i.imgur.com/58NZ5ef.jpg
+shirt2 = http://i.imgur.com/smGla8X.jpg
+shirt3 = http://i.imgur.com/9CLriJ2.jpg
+short1 = http://i.imgur.com/aSJXnm3.jpg
+short2 = http://i.imgur.com/eAgilcC.jpg
+short3 = http://i.imgur.com/pUd2xby.jpg
+shoes1 = http://i.imgur.com/3sxJpHl.jpg
+shoes2 = http://i.imgur.com/ZiZclYL.jpg
+shoes3 = http://i.imgur.com/mWqvAga.jpg
+
+

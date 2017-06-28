@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+  <style type="text/css">
+  .canvas-container {
+    width: 482px;     /* 1 + 480 + 1（邊框） */
+    margin: 0 auto;   /* 置中 */
+    line-height: 0.6; /* 修正行高 */
+    overflow: hidden; /* 避免 canvas 超出圓角範圍 */
+  }
+
+  #colorbar {
+    display: block;
+    text-align: center;
+    margin: 1em;
+  }
+    .btn-toolbar
+  {
+    text-align: center;
+    margin: 1em;
+  }
+
+  #colorbar .btn-group {
+    float: none;
+  }
+
+  .colorbox {
+    width: 24px;
+    height: 24px;
+    float: none !important;
+    opacity: 1 !important;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <br />
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <span class="navbar-brand">線上繪圖板</span>
+        </div>
+
+      </div>
+    </nav>
+    <div>
+      <div id="colorbar" class="btn-toolbar" role="toolbar">
+        <div class="btn-group" role="group">
+          <button id="current-color" class="btn btn-default colorbox" disabled />
+        </div>
+        <div id="colorholder" class="btn-group" role="group"></div>
+      </div>
+      <div id="btn_bar" class="btn-toolbar"  role="toolbar">
+        <button id="clear" class="btn btn-danger">清空畫布</button>
+        <!--畫筆大小:<input type="range" value="1" id="size"  min="1" max="20">-->
+      </div>
+      <div class="panel panel-default canvas-container">
+        <canvas width="480" height="480"></canvas>
+      </div>
+    </div>
+  </div>
+  <form id="myform">
+	<input type="hidden">
+  </form>
+  <script>
+  $(document).ready(function () {
+	//$("#myform").submit();
+	
+    // 定義變數們
+    var pixSize = 1, lastPoint = null, currentColor, mouseDown = false;
+
+    // 連接 Firebase
+    var config = {
+      apiKey: "AIzaSyBhNae8JjhECZuiCoUgdIcCiM6XohvA7Hg",	   
+      databaseURL: "https://learn-93a76.firebaseio.com",	  
+    };
+    firebase.initializeApp(config);
+    var dataRef = firebase.database().ref();
+
+    // 函數：設定畫筆顏色
+    var setColor = function (color) {
+      currentColor = color;
+      $('#current-color').css("background-color", '#' + color);
+    };
+    setColor("000"); // 設定畫筆預設值
+
+    // 定義調色盤的顏色種類
+    var colors = ["fff","000","f00","0f0","00f","88f","f8d","f88","f05","f80","0f8","cf0","08f","408","ff8","8ff"];
+    // 建立調色盤按鈕
+    for (c in colors) {
+      var item = $('<button/>') // 建立按鈕
+                   .css("background-color", '#' + colors[c]) // 繪製背景色
+                   .addClass("btn btn-default colorbox"); // 加上相關 Class
+      item.click((function (color) { // 按下按鈕後觸發
+        return function () {
+          setColor(color); // 設定畫筆顏色
+        };
+      })(colors[c])); // 建立閉包以確保 `c` 不會在建立 function 後改變
+      item.appendTo('#colorholder'); // 將按鈕加入 `#colorholder`
+    }
+
+    // 初始化畫布
+    var myCanvas = $('.canvas-container canvas')[0];
+    var myContext = myCanvas.getContext ? myCanvas.getContext('2d') : null;
+    if (myContext == null) { // 檢測瀏覽器是否支援
+      alert("You must use a browser that supports HTML5 Canvas to run this demo.");
+      return;
+    }
+
+    // 記錄滑鼠狀態
+    myCanvas.onmousedown = function () { // 當滑鼠按下時
+      mouseDown = true; // 標記滑鼠已按下
+    };
+    myCanvas.onmouseout = myCanvas.onmouseup = function () { // 當滑鼠放開或移出畫布時
+      mouseDown = false; // 標記滑鼠未按下（已放開）
+      lastPoint = null;  // 清空最後繪製的點座標（算法相關）
+    };
+
+    // 從上一個繪製的點開始追蹤滑鼠並繪製畫面
+    var drawLineOnMouseMove = function (e) {
+      if (!mouseDown) return; // 若滑鼠未處於按下狀態時直接返回
+      e.preventDefault(); // 避免瀏覽器自行處理滑鼠事件
+
+      // 利用布雷森漢姆直線演算法來使繪製的線條更平滑
+      var offset = $('canvas').offset();
+      var x1 = Math.floor((e.pageX - offset.left) / pixSize - 0.1),
+          y1 = Math.floor((e.pageY - offset.top) / pixSize - 0.1);
+      var x0 = (lastPoint == null) ? x1 : lastPoint[0],
+          y0 = (lastPoint == null) ? y1 : lastPoint[1];
+      var dx = Math.abs(x1 - x0), dy = Math.abs(y1 - y0);
+      var sx = (x0 < x1) ? 1 : -1, sy = (y0 < y1) ? 1 : -1, err = dx - dy;
+      while (true) {
+        onDraw(x0, y0, currentColor);
+
+        if (x0 == x1 && y0 == y1) break;
+        var e2 = 2 * err;
+        if (e2 > -dy) {
+          err = err - dy;
+          x0 = x0 + sx;
+        }
+        if (e2 < dx) {
+          err = err + dx;
+          y0 = y0 + sy;
+        }
+      }
+      lastPoint = [x1, y1];
+    };
+    $(myCanvas).mousemove(drawLineOnMouseMove);
+    $(myCanvas).mousedown(drawLineOnMouseMove);
+
+    // 於畫布上繪製
+    var onDraw = function (x, y, color) {
+      /* 單人繪圖板部分 BEGIN *
+      myContext.fillStyle = "#" + color; // 指定接下來要在畫布上套用的顏色
+      myContext.fillRect(x * pixSize, y * pixSize, pixSize, pixSize); // 在畫布上繪圖
+       * 單人繪圖板部分  END  */
+      // 在 Firebase 上加入/刪除對應 child
+      dataRef.child(x + ":" + y).set(color === "fff" ? null : color);
+    };
+
+    // 捕捉 Firebase 事件
+    // 注意：網頁剛載入時也會觸發 child_added，這讓我們可以繪製當前的畫面
+    var drawPixel = function(snapshot) {
+      var coords = snapshot.key.split(":");
+      myContext.fillStyle = "#" + snapshot.val();
+      myContext.fillRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
+    };
+    var clearPixel = function(snapshot) {
+      var coords = snapshot.key.split(":");
+      myContext.clearRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
+    };
+    dataRef.on('child_added', drawPixel);
+    dataRef.on('child_changed', drawPixel);
+    dataRef.on('child_removed', clearPixel);
+
+    $("#clear").click( function ()
+   {
+    //alert("jQuery select success");
+    /*myContext.fillStyle = "#FFF";
+    myContext.fillRect(0,0, 480, 480); // 在畫布上繪圖*/
+    dataRef.set(null);//直接刪掉全部的點，透過child_removed的監聽事件彈回去呼叫clearPixel
+   });
+
+    /*$("#size").input(function(){
+      pixSize = $("#size").value ;
+    });**/
+
+  });
+</script>
+</body>
+</html>

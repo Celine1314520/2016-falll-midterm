@@ -1,0 +1,40 @@
+body
+{
+	/*
+	width: 1280px;
+    height: 720px;
+	*/
+	
+	background-size: 100% auto;
+	 /*--bg-height:height;*/
+	
+	/*display: block;*/
+    background-position: 50% 50%;
+
+    /*background-size: cover;*/
+	
+    background-repeat: no-repeat;
+	background-attachment:fixed;
+	/*解決前五秒
+	background-image:url('images/Board4.jpg'); 
+	解決前五秒*/
+}
+#timeLabel{
+    /*position: absolute;*/
+	position: fixed;
+	
+	/*解決前五秒
+	top: calc(50vh - 10vw);
+	//top:calc(var(--bg-height) * 35%);
+    left:34%;
+    font-size:7.8vw;
+	transform: rotate(25deg);
+    color: black;
+	解決前五秒*/
+	
+	/*問題：
+    前五秒的圖片和文字沒出現效果->先設最後一張圖的設定
+    絕對位置會跑掉、解析度不一致 ->必須找大小一模一樣的圖片
+    */
+    
+}
